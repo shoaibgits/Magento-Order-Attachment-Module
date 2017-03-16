@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <MageSf_OrderCustom>
+            <version>1.0.1</version>
+        </MageSf_OrderCustom>
+    </modules>
+    <global>
+        <blocks>
+            <ordercustom>
+                <class>MageSf_OrderCustom_Block</class>
+            </ordercustom>
+        </blocks>
+    </global>       
+    <adminhtml>
+       <layout>
+            <updates>
+                <ordercustom>
+                    <file>magsf_ordercustom.xml</file>
+                </ordercustom>
+            </updates>
+        </layout>
+    </adminhtml>
+</config>

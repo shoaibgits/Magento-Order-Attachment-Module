@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+     <modules>
+        <MageSf_OrderCustom>
+            <active>true</active>
+            <codePool>local</codePool>
+        </MageSf_OrderCustom>
+    </modules>
+</config>
