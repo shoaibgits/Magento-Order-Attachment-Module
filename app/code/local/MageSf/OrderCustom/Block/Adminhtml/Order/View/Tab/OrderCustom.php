@@ -1,4 +1,10 @@
 <?php
+
+/**
+ * @author Shoaib
+ * @copyright 2017
+ */
+
 class MageSf_OrderCustom_Block_Adminhtml_Order_View_Tab_OrderCustom
     extends Mage_Adminhtml_Block_Template
     implements Mage_Adminhtml_Block_Widget_Tab_Interface
@@ -8,6 +14,7 @@ class MageSf_OrderCustom_Block_Adminhtml_Order_View_Tab_OrderCustom
     {
         parent::_construct();
         $this->setTemplate('magsf/ordercustom/order/view/tab/ordercustom.phtml');
+    
     }
 
     public function getTabLabel() {

@@ -11,6 +11,48 @@
                 <class>MageSf_OrderCustom_Block</class>
             </ordercustom>
         </blocks>
+        
+        <helpers>
+            <magesf_ordercustom>
+                <class>MageSf_OrderCustom_Helper</class>
+            </magesf_ordercustom>
+        </helpers>
+
+        <models>         
+            <magesf_ordercustom>
+                <class>MageSf_OrderCustom_Model</class>
+                <resourceModel>magesf_ordercustom_resource</resourceModel>
+            </magesf_ordercustom>
+            <magesf_ordercustom_resource>
+                <class>MageSf_OrderCustom_Model_Resource</class>
+                <entities>
+                    <review>
+                        <table>magesf_ordercustom</table>
+                    </review>
+                </entities>
+            </magesf_ordercustom_resource>
+        </models>
+
+        <resource>
+            <magesf_ordercustom_setup>
+                <setup>
+                    <module>MageSf_OrderCustom</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </magesf_ordercustom_setup>
+            <magesf_ordercustom_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </magesf_ordercustom_write>
+            <magesf_ordercustom_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </magesf_ordercustom_read>
+        </resource>
     </global>       
     <adminhtml>
        <layout>
@@ -21,4 +63,15 @@
             </updates>
         </layout>
     </adminhtml>
+    <admin> 
+    <routers>
+         <adminhtml> 
+             <args> 
+                 <modules> 
+                <MageSf_OrderCustom after="Mage_Adminhtml">MageSf_OrderCustom_Adminhtml</MageSf_OrderCustom> 
+                </modules> 
+            </args>
+       </adminhtml>
+   </routers> 
+</admin>
 </config>

@@ -1,29 +1,16 @@
-<?php
-
-if(isset($_POST['docname']))
-{
-    try
-    {      
-        $path = Mage::getBaseDir().DS.'customer_documents'.DS;  //desitnation directory    
-        $fname = $_FILES['docname']['name']; //file name                       
-        $uploader = new Varien_File_Uploader('docname'); //load class
-        $uploader->setAllowedExtensions(array('doc','pdf','txt','docx')); //Allowed extension for file
-        $uploader->setAllowCreateFolders(true); //for creating the directory if not exists
-        $uploader->setAllowRenameFiles(false); //if true, uploaded file's name will be changed, if file with the same name already exists directory.
-        $uploader->setFilesDispersion(false);
-        $uploader->save($path,$fname); //save the file on the specified path
-        
-    }
-    catch (Exception $e)
-    {
-        echo 'Error Message: '.$e->getMessage();
-    }
-}
-
+<?php /**
+ * @author Shoaib
+ * @copyright 2017
+ */
  ?>
 
-<form id="doc-form" name="doc-form" method="post" action="" enctype="multipart/form-data">
-<label>Upload Document</label>
+<form id="doc-form" name="doc-form" method="post" action="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/sfupload/upload',array('form_key' => Mage::getSingleton('core/session')->getFormKey(),'order_id'=>$this->getOrder()->getId())); ?>" enctype="multipart/form-data">
+
+<label>Select Attachment</label>
 <input type="file" title="File" name="docname">
+<label>Attachment Name</label>
+<input type="text" title="image_name" name="image_name">
+<label>Attachment Comments</label>
+<input type="text" title="image_comments" name="image_comments">
 <button type="submit" title="Save"><span>Upload</span></button>                    
 </form>
