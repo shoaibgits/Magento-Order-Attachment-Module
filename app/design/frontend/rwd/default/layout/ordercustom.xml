@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <customer_account>        
+        <reference name="customer_account_navigation">           
+        <action method="addLink" translate="label" module="ordercustom">
+            <name>ordercustom</name>
+        <path>ordercustom/customer/view</path>
+        <label>Order Attachments</label>
+        </action>
+    </reference>
+    </customer_account>    
+ 
+    <ordercustom_customer_view>
+    <update handle="customer_account"/>
+    <reference name="content">
+        <block type="ordercustom/ordercustom" name="view.ordercustom" template="ordercustom/customer/view.phtml"/>
+    </reference>
+    </ordercustom_customer_view>
+</layout>

@@ -13,9 +13,9 @@
         </blocks>
         
         <helpers>
-            <magesf_ordercustom>
+            <ordercustom>
                 <class>MageSf_OrderCustom_Helper</class>
-            </magesf_ordercustom>
+            </ordercustom>
         </helpers>
 
         <models>         
@@ -63,6 +63,15 @@
             </updates>
         </layout>
     </adminhtml>
+    <frontend>    
+        <layout>
+            <updates>
+                <ordercustom>
+                <file>ordercustom.xml</file>
+                </ordercustom>
+            </updates>
+        </layout>
+    </frontend>
     <admin> 
     <routers>
          <adminhtml> 
