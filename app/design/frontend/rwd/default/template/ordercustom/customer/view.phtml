@@ -5,35 +5,43 @@
  * @copyright 2017
  */ ?>
 <div class="order-attachments">
-
+    <h1>Orders Attachments</h1>
 <?php 
 
-
-$customer = Mage::getSingleton('customer/session')->getCustomer();
-
-//echo"<pre>"; print_r($customer);
- $email = $customer->getEmail(); 
-
-$orderCollection = Mage::getModel('sales/order')->getCollection()
-->addFieldToFilter('customer_email',$email)->addFieldToSelect('*');
-
-foreach($orderCollection as $order){
-//echo "<pre>";
-
- echo $Order_ID = $order['entity_id'].'<br />';
-//print_r($order->getData());
-//echo "</pre>";
-        
-
-}
-        
+    
         $collection = $this->view();
         $_all_Data = $collection->getData(); 
        
-        echo "<pre>"; print_r($_all_Data);
-
-
-
-?>
+        foreach( $_all_Data as $_each_data ){ ?>
+            
+            <table class="data-table orders" id="my-orders-table">
+                <colgroup><col width="1">
+                    <col width="1">
+                    <col>
+                    <col width="1">
+                    <col width="1">
+                    <col width="1">
+                </colgroup>
+                    <thead>
+                        <tr class="first last">
+                            <th>Customer Id</th>
+                            <th>Order Id</th>
+                            <th>Attachment Comments</th>
+                            <th>Attachments</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="first last odd">
+                            <td><?php echo $_each_data['customer_id'];?></td>
+                            <td><?php echo $_each_data['order_id']; ?></td>
+                            <td><?php echo $_each_data['image_comments'];?></td>
+                            <td><a href="<?php echo $_each_data['image_url'];?>">Download Attachment</a></td>
+                        </tr>
+                    </tbody>
+            </table>
+           
+            
+       <?php  } ?>
 
 </div>

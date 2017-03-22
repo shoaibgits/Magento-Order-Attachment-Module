@@ -7,11 +7,11 @@
 class MageSf_OrderCustom_Adminhtml_SfuploadController extends Mage_Adminhtml_Controller_Action {  
     public function uploadAction() {
         if (isset($_FILES['docname']['name']) && $_FILES['docname']['name'] != '') {
-             
+            
             try {
                  
                 $uploader = new Varien_File_Uploader('docname');
-                $uploader->setAllowedExtensions(array('doc','pdf','txt','docx','png'));
+                $uploader->setAllowedExtensions(array('doc','pdf','txt','docx','png','jpg'));
                 $uploader->setAllowCreateFolders(true);
                 $uploader->setAllowRenameFiles(false);
                 $uploader->setFilesDispersion(false);
@@ -25,12 +25,14 @@ class MageSf_OrderCustom_Adminhtml_SfuploadController extends Mage_Adminhtml_Con
 
                 $path = Mage::getBaseDir('media') . DS . $newDir . DS;
                 $resizedPath = Mage::getBaseDir('media') . DS . $newDir;
+                
                  $upl = $uploader->save($path, $_FILES['docname']['name']);
                   
-                  $data = $this->getRequest()->getPost();
+                   $data = $this->getRequest()->getPost();
                    $orderid= $this->getRequest()->getParam('order_id');
+                   $order_cus_id = $this->getRequest()->getParam('customer_id');
                    $attach_comments = $data['image_comments'];
-                   $paths = $upl['path'].$upl['file'];
+                   $paths = $resizedPath.'"\"'.$upl['file'];
                         
                 $filename = $uploader->getUploadedFileName(); // Uploaded File name
                 
@@ -43,13 +45,14 @@ class MageSf_OrderCustom_Adminhtml_SfuploadController extends Mage_Adminhtml_Con
             $prefix = Mage::getConfig()->getTablePrefix();
             $table = 'magesf_ordercustom';
             $query = "insert into ".$prefix.$table." "
-                 . "(order_id,image_url,image_comments) values "
-                 . "('$orderid', '$paths', '$attach_comments')";
+                 . "(order_id,image_url,image_comments,customer_id) values "
+                 . "('$orderid', $paths, '$attach_comments','$order_cus_id')";
             
             $binds = array(
               'order_id'    => $orderid,
               'image_url'   => $paths,
               'image_comments' => $attach_comments,
+              'customer_id' => $order_cus_id,
             
             );
             

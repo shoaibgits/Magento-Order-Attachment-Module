@@ -1,97 +1,100 @@
 <?xml version="1.0"?>
 <config>
-    <modules>
-        <MageSf_OrderCustom>
-            <version>1.0.1</version>
-        </MageSf_OrderCustom>
-    </modules>
-    <global>
-        <blocks>
-            <ordercustom>
-                <class>MageSf_OrderCustom_Block</class>
-            </ordercustom>
-        </blocks>
-        
-        <helpers>
-            <ordercustom>
-                <class>MageSf_OrderCustom_Helper</class>
-            </ordercustom>
-        </helpers>
+<modules>
+    <MageSf_OrderCustom>
+        <version>1.0.1</version>
+    </MageSf_OrderCustom>
+</modules>
+<global>
+    <blocks>
+        <magesf_ordercustom>
+            <class>MageSf_OrderCustom_Block</class>
+        </magesf_ordercustom>
+        <ordercustom>
+            <class>MageSf_OrderCustom_Block</class>
+        </ordercustom>
+    </blocks>
 
-        <models>         
-            <magesf_ordercustom>
-                <class>MageSf_OrderCustom_Model</class>
-                <resourceModel>magesf_ordercustom_resource</resourceModel>
-            </magesf_ordercustom>
-            <magesf_ordercustom_resource>
-                <class>MageSf_OrderCustom_Model_Resource</class>
-                <entities>
-                    <ordercustom>
-                        <table>magesf_ordercustom</table>
-                    </ordercustom>
-                </entities>
-            </magesf_ordercustom_resource>
-        </models>
+    <helpers>
+        <ordercustom>
+            <class>MageSf_OrderCustom_Helper</class>
+        </ordercustom>
+    </helpers>
 
-        <resource>
-            <magesf_ordercustom_setup>
-                <setup>
-                    <module>MageSf_OrderCustom</module>
-                </setup>
-                <connection>
-                    <use>core_setup</use>
-                </connection>
-            </magesf_ordercustom_setup>
-            <magesf_ordercustom_write>
-                <connection>
-                    <use>core_write</use>
-                </connection>
-            </magesf_ordercustom_write>
-            <magesf_ordercustom_read>
-                <connection>
-                    <use>core_read</use>
-                </connection>
-            </magesf_ordercustom_read>
-        </resource>
-    </global>       
-    <adminhtml>
-       <layout>
-            <updates>
+    <models>         
+        <magesf_ordercustom>
+            <class>MageSf_OrderCustom_Model</class>
+            <resourceModel>magesf_ordercustom_resource</resourceModel>
+        </magesf_ordercustom>
+        <magesf_ordercustom_resource>
+            <class>MageSf_OrderCustom_Model_Resource</class>
+            <entities>
                 <ordercustom>
-                    <file>magsf_ordercustom.xml</file>
+                    <table>magesf_ordercustom</table>
                 </ordercustom>
-            </updates>
-        </layout>
-    </adminhtml>
-    <frontend>    
-        <layout>
-            <updates>
-                <ordercustom>
-                    <file>ordercustom.xml</file>
-                </ordercustom>
-            </updates>
-        </layout>
-    </frontend>
-    <frontend>
-        <routers>
+            </entities>
+        </magesf_ordercustom_resource>
+    </models>
+
+    <resource>
+        <magesf_ordercustom_setup>
+            <setup>
+                <module>MageSf_OrderCustom</module>
+            </setup>
+            <connection>
+                <use>core_setup</use>
+            </connection>
+        </magesf_ordercustom_setup>
+        <magesf_ordercustom_write>
+            <connection>
+                <use>core_write</use>
+            </connection>
+        </magesf_ordercustom_write>
+        <magesf_ordercustom_read>
+            <connection>
+                <use>core_read</use>
+            </connection>
+        </magesf_ordercustom_read>
+    </resource>
+</global>       
+<adminhtml>
+   <layout>
+        <updates>
             <ordercustom>
-                <use>standard</use>
-                <args>
-                    <module>MageSf_OrderCustom</module>
-                    <frontName>ordercustom</frontName>
-                </args>
+                <file>magsf_ordercustom.xml</file>
             </ordercustom>
-        </routers>  
-    </frontend>
-    <admin> 
+        </updates>
+    </layout>
+</adminhtml>
+<frontend>    
+    <layout>
+        <updates>
+            <ordercustom>
+                <file>ordercustom.xml</file>
+            </ordercustom>
+        </updates>
+    </layout>
+</frontend>
+<frontend>
     <routers>
-         <adminhtml> 
-             <args> 
-                 <modules> 
-                    <MageSf_OrderCustom after="Mage_Adminhtml">MageSf_OrderCustom_Adminhtml</MageSf_OrderCustom> 
-                </modules> 
+        <ordercustom>
+            <use>standard</use>
+            <args>
+                <module>MageSf_OrderCustom</module>
+                <frontName>ordercustom</frontName>
             </args>
-       </adminhtml>        
-   </routers> 
+        </ordercustom>
+    </routers>  
+</frontend>
+<admin> 
+<routers>
+     <adminhtml> 
+         <args> 
+             <modules> 
+                <MageSf_OrderCustom after="Mage_Adminhtml">MageSf_OrderCustom_Adminhtml</MageSf_OrderCustom> 
+            </modules> 
+        </args>
+   </adminhtml>        
+</routers> 
 </admin>
 </config>

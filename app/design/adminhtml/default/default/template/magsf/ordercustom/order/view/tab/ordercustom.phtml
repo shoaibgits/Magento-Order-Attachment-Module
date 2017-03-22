@@ -2,15 +2,43 @@
  * @author Shoaib
  * @copyright 2017
  */
- ?>
+ 
+ 
 
-<form id="doc-form" name="doc-form" method="post" action="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/sfupload/upload',array('form_key' => Mage::getSingleton('core/session')->getFormKey(),'order_id'=>$this->getOrder()->getId())); ?>" enctype="multipart/form-data">
+$sss = Mage::registry('sales_order')->getCustomerId();
 
-<label>Select Attachment</label>
-<input type="file" title="File" name="docname">
-<label>Attachment Name</label>
-<input type="text" title="image_name" name="image_name">
-<label>Attachment Comments</label>
-<input type="text" title="image_comments" name="image_comments">
-<button type="submit" title="Save"><span>Upload</span></button>                    
+
+?>
+
+<form id="doc-form" name="doc-form" method="post" action="<?php echo Mage::helper('adminhtml')->getUrl('adminhtml/sfupload/upload',array('form_key' => Mage::getSingleton('core/session')->getFormKey(),'order_id'=>$this->getOrder()->getId(), 'customer_id'=>$sss)); ?>" enctype="multipart/form-data">
+
+<table class="data-table orders" id="my-orders-table">
+                <colgroup>
+                    <col width="1">
+                    <col width="1">
+                    <col>
+                    <col width="1">
+                    <col width="1">
+                    <col width="1">
+                </colgroup>
+                    <thead>
+                        <tr class="first last">
+                            <th>Select Attachment</th>
+                            <th>Attachment Name</th>
+                            <th>Attachment Comments</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody>
+                        <tr class="first last odd">
+                            <td><input type="file" title="File" name="docname"></td>
+                            <td><input type="text" title="image_name" name="image_name"></td>
+                            <td><input type="text" title="image_comments" name="image_comments"></td>
+                            <td> <button type="submit" title="Save"><span>Upload</span></button></td>
+                        </tr>
+                       
+                    </tbody>
+            </table>
+                                        
 </form>
