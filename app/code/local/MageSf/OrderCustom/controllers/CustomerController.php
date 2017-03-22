@@ -24,15 +24,29 @@ class MageSf_OrderCustom_CustomerController extends Mage_Core_Controller_Front_A
                 ->addSuccess(Mage::helper('ordercustom')->__('Please sign in or create a new account'));
         }
     }            
-                
     /**
      * View Your Module
      */
-    public function viewAction()
-    {                    
-    $this->loadLayout();        
-           $this->getLayout()->getBlock('head')->setTitle($this->__('Order Attachment'));        
-    $this->renderLayout();
+     
+    public function viewAction() {
+
+      $this->loadLayout();   
+      $this->getLayout()->getBlock("head")->setTitle($this->__("Order Attachments"));
+            $breadcrumbs = $this->getLayout()->getBlock("breadcrumbs");
+      $breadcrumbs->addCrumb("home", array(
+                "label" => $this->__("Home Page"),
+                "title" => $this->__("Home Page"),
+                "link"  => Mage::getBaseUrl()
+           ));
+
+      $breadcrumbs->addCrumb("titlename", array(
+                "label" => $this->__("Attachments"),
+                "title" => $this->__("Attachments")
+           ));
+
+      $this->renderLayout(); 
+        
+
     }
 } 
 ?>

@@ -1,5 +1,5 @@
 <?php
-class MageSf_OrderCustom_Model_Mysql4_Review extends
+class MageSf_OrderCustom_Model_Mysql4_Ordercustom extends
     Mage_Core_Model_Mysql4_Abstract
 {
     public function _construct()

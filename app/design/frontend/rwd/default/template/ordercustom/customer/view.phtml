@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @author Shoaib
+ * @copyright 2017
+ */ ?>
+<div class="order-attachments">
+
+<?php 
+
+
+$customer = Mage::getSingleton('customer/session')->getCustomer();
+
+//echo"<pre>"; print_r($customer);
+ $email = $customer->getEmail(); 
+
+$orderCollection = Mage::getModel('sales/order')->getCollection()
+->addFieldToFilter('customer_email',$email)->addFieldToSelect('*');
+
+foreach($orderCollection as $order){
+//echo "<pre>";
+
+ echo $Order_ID = $order['entity_id'].'<br />';
+//print_r($order->getData());
+//echo "</pre>";
+        
+
+}
+        
+        $collection = $this->view();
+        $_all_Data = $collection->getData(); 
+       
+        echo "<pre>"; print_r($_all_Data);
+
+
+
+?>
+
+</div>

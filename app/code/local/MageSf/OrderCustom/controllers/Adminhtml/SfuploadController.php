@@ -40,8 +40,9 @@ class MageSf_OrderCustom_Adminhtml_SfuploadController extends Mage_Adminhtml_Con
             }
             $connectionresource = Mage::getSingleton('core/resource');
             $connectionWrite = $connectionresource->getConnection('core_write');
+            $prefix = Mage::getConfig()->getTablePrefix();
             $table = 'magesf_ordercustom';
-            $query = "insert into ".$table." "
+            $query = "insert into ".$prefix.$table." "
                  . "(order_id,image_url,image_comments) values "
                  . "('$orderid', '$paths', '$attach_comments')";
             
